@@ -6,5 +6,9 @@
             "email": "liudmilagubanova18@gmail.com"
         }
     ],
-    "require": {}
+    "description": "hexlet php-project-45",
+    "require": {},
+    "bin": [
+        "bin/brain-games"
+    ]
 }
