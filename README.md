@@ -3,3 +3,6 @@
 
 ### Maintainability Badge
 <a href="https://codeclimate.com/github/Ludmila398/php-project-45/maintainability"><img src="https://api.codeclimate.com/v1/badges/1270507d5871b4b99be6/maintainability" /></a>
+
+### asciinema.org
+https://asciinema.org/a/8VhvtUfq3rk04QUCVHJZTzH90
