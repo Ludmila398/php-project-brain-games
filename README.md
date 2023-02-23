@@ -6,5 +6,9 @@
 
 ### asciinema.org
 https://asciinema.org/a/8VhvtUfq3rk04QUCVHJZTzH90
+
 ### asciinema.org brain-calc
 https://asciinema.org/a/t8ajujWfjqHbNvviAGY41sDed
+
+### asciinema.org brain-gcd
+https://asciinema.org/a/3ogcdjQPXIOnApMM1xBbSM9cG
