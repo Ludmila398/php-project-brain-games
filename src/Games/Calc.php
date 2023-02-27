@@ -30,10 +30,9 @@ function calculator()
         $symbols = ['+', '-', '*'];
         $symbol = $symbols[rand(0, count($symbols)-1)];
         $quest = "{$randNumber1} {$symbol} {$randNumber2}";
-        $rightAnswer = calculation($symbol, $randNumber1, $randNumber2);
+        $rightAnswer = (string)(calculation($symbol, $randNumber1, $randNumber2));
 
-        $mathQuest[$i] = [$randNumber1, $symbol, $randNumber2, $rightAnswer, $quest];
-        
+        $mathQuest[$i] = [$quest, $rightAnswer];
     }
     return $mathQuest;
     }

@@ -29,10 +29,10 @@ function progression()
         $progrStart = rand(2, 15);
         $progrArray = calculation ($progrStep, $progrStart);
         $hiddenNumber = rand(0, 9);
-        $rightAnswer = $progrArray[$hiddenNumber];
+        $rightAnswer = (string)($progrArray[$hiddenNumber]);
         $progrArray[$hiddenNumber] = '..';
         $quest = implode(' ', $progrArray);
-        $mathQuest[$i] = ['', '', '', $rightAnswer, $quest];
+        $mathQuest[$i] = [$quest, $rightAnswer];
         
     }
     return $mathQuest;

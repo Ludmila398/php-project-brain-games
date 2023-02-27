@@ -31,9 +31,9 @@ function divisor()
         $randNumber1 = rand(1, 101);
         $randNumber2 = rand(1, 101);
         $quest = "{$randNumber1} {$randNumber2}";
-        $rightAnswer = calculation ($randNumber1, $randNumber2);
+        $rightAnswer = (string)(calculation ($randNumber1, $randNumber2));
 
-        $mathQuest[$i] = [$randNumber1, '', $randNumber2, $rightAnswer, $quest];
+        $mathQuest[$i] = [$quest, $rightAnswer];
         
     }
     return $mathQuest;
