@@ -12,7 +12,7 @@ function play($mathQuest1, $question)
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
     line($question);
-    
+
     for ($i = 0; $i < NUMBER_OF_LOOPS; $i += 1) {
         line("Question: {$mathQuest1[$i][0]}");
         $answer = prompt('Your answer');
