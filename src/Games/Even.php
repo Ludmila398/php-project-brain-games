@@ -5,6 +5,9 @@ namespace BrainGames\Even;
 use function cli\line;
 use function cli\prompt;
 
+
+const NUMBER_OF_LOOPS = 3;
+
 function checkIfEven()
 {
     line('Welcome to the Brain Games!');
@@ -14,22 +17,19 @@ function checkIfEven()
     line('Answer "yes" if the number is even, otherwise answer "no".');
 
     $count = 0;
-    for ($i = 0; $i < 3; $i += 1) {
+    for ($i = 0; $i < NUMBER_OF_LOOPS; $i += 1) {
         $randNumber = rand();
-        print_r("Question: {$randNumber}\n");
+        line("Question: {$randNumber}");
         $answer = prompt('Your answer');
         if (($answer === 'yes') && ($randNumber % 2 === 0)){
-            print_r("Correct!\n");
+            line("Correct!");
             $count +=1;
         } elseif (($answer === 'no') && ($randNumber % 2 !== 0)) {
-            print_r("Correct!\n");
+            line("Correct!");
             $count +=1;
         } else {
-            print_r("'yes' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, {$name}!");
-            break;
+            exit("'yes' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, {$name}!");
         }   
     }
-    if ($count === 3){
-        print_r("Congratulations, {$name}!");
-    }
+        line("Congratulations, {$name}!");
 }

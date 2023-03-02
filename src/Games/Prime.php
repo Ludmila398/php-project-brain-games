@@ -4,13 +4,15 @@ namespace BrainGames\Prime;
 
 use function cli\line;
 use function cli\prompt;
-use function BrainGames\Engine\game;
+use function Engine\play;
 
-function prime()
+const NUMBER_OF_LOOPS = 3;
+
+function checkIfPrime()
 {
     $question = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     
-    function calculation($randNumber)
+    function calculate($randNumber)
     {
         $answer = '';
         if ($randNumber === 2) {
@@ -27,18 +29,19 @@ function prime()
         return $answer;
     }
     
-    function mathQuest()
+    function getMathQuest()
     {
     $mathQuest = [];
-    for ($i = 0; $i < 3; $i += 1) {
+
+    for ($i = 0; $i < NUMBER_OF_LOOPS; $i += 1) {
         $randNumber = rand(2, 40);
-        $rightAnswer = calculation($randNumber);
+        $rightAnswer = calculate($randNumber);
         $mathQuest[$i] = [$randNumber, $rightAnswer];
         
     }
     return $mathQuest;
     }
-    $mathQuest1 = mathQuest();
+    $mathQuest1 = getMathQuest();
 
-    game($mathQuest1, $question);
+    play($mathQuest1, $question);
 }

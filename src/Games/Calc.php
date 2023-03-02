@@ -4,13 +4,16 @@ namespace BrainGames\Calc;
 
 use function cli\line;
 use function cli\prompt;
-use function BrainGames\Engine\game;
+use function Engine\play;
 
-function calculator()
+
+const NUMBER_OF_LOOPS = 3;
+
+function getCalculator()
 {
     $question = 'What is the result of the expression?';
     
-    function calculation($symbol, $randNumber1, $randNumber2)
+    function calculate($symbol, $randNumber1, $randNumber2)
     {
         switch ($symbol) {
             case "+":
@@ -21,22 +24,22 @@ function calculator()
                 return $randNumber1 * $randNumber2;
         }
     }
-    function mathQuest()
+    function getMathQuest()
     {
     $mathQuest = [];
-    for ($i = 0; $i < 3; $i += 1) {
+    for ($i = 0; $i < NUMBER_OF_LOOPS; $i += 1) {
         $randNumber1 = rand(1, 30);
         $randNumber2 = rand(1, 30);
         $symbols = ['+', '-', '*'];
         $symbol = $symbols[rand(0, count($symbols)-1)];
         $quest = "{$randNumber1} {$symbol} {$randNumber2}";
-        $rightAnswer = (string)(calculation($symbol, $randNumber1, $randNumber2));
+        $rightAnswer = (string)(calculate($symbol, $randNumber1, $randNumber2));
 
         $mathQuest[$i] = [$quest, $rightAnswer];
     }
     return $mathQuest;
     }
-    $mathQuest1 = mathQuest();
+    $mathQuest1 = getMathQuest();
 
-    game($mathQuest1, $question);
+    play($mathQuest1, $question);
 }

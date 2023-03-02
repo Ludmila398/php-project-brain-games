@@ -4,13 +4,16 @@ namespace BrainGames\Progression;
 
 use function cli\line;
 use function cli\prompt;
-use function BrainGames\Engine\game;
+use function Engine\play;
 
-function progression()
+
+const NUMBER_OF_LOOPS = 3;
+
+function getProgression()
 {
     $question = 'What number is missing in the progression?';
     
-    function calculation($progrStep, $progrStart)
+    function calculate($progrStep, $progrStart)
     {
         $progr = [];
         $temp = $progrStart;
@@ -21,13 +24,13 @@ function progression()
         return $progr;
     }
     
-    function mathQuest()
+    function getMathQuest()
     {
     $mathQuest = [];
-    for ($i = 0; $i < 3; $i += 1) {
+    for ($i = 0; $i < NUMBER_OF_LOOPS; $i += 1) {
         $progrStep = rand(2, 7);
         $progrStart = rand(2, 15);
-        $progrArray = calculation ($progrStep, $progrStart);
+        $progrArray = calculate($progrStep, $progrStart);
         $hiddenNumber = rand(0, 9);
         $rightAnswer = (string)($progrArray[$hiddenNumber]);
         $progrArray[$hiddenNumber] = '..';
@@ -37,7 +40,7 @@ function progression()
     }
     return $mathQuest;
     }
-    $mathQuest1 = mathQuest();
+    $mathQuest1 = getMathQuest();
 
-    game($mathQuest1, $question);
+    play($mathQuest1, $question);
 }
