@@ -11,7 +11,7 @@ function findDivisor()
 {
     $question = 'Find the greatest common divisor of given numbers.';
 
-    function calculate($randNumber1, $randNumber2)
+    function calculate(int $randNumber1, int $randNumber2)
     {
         if ($randNumber1 > $randNumber2) {
             $temp =  $randNumber2;

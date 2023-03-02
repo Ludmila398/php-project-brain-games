@@ -12,7 +12,7 @@ function getCalculator()
 {
     $question = 'What is the result of the expression?';
 
-    function calculate($symbol, $randNumber1, $randNumber2)
+    function calculate(string $symbol, int $randNumber1, int $randNumber2)
     {
         switch ($symbol) {
             case "+":

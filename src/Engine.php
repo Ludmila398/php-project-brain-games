@@ -6,7 +6,7 @@ use function cli\line;
 use function cli\prompt;
 
 const NUMBER_OF_LOOPS = 3;
-function play($mathQuest1, $question)
+function play(array $mathQuest1, string $question)
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');

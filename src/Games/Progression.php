@@ -12,7 +12,7 @@ function getProgression()
 {
     $question = 'What number is missing in the progression?';
 
-    function calculate($progrStep, $progrStart)
+    function calculate(int $progrStep, int $progrStart)
     {
         $progr = [];
         $temp = $progrStart;

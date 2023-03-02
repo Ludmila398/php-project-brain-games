@@ -12,7 +12,7 @@ function checkIfPrime()
 {
     $question = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-    function calculate($randNumber)
+    function calculate(int $randNumber)
     {
         $answer = '';
         if ($randNumber === 2) {
