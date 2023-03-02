@@ -11,7 +11,7 @@ const NUMBER_OF_LOOPS = 3;
 function checkIfPrime()
 {
     $question = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-    
+
     function calculate($randNumber)
     {
         $answer = '';
@@ -19,27 +19,26 @@ function checkIfPrime()
             $answer = 'yes';
         }
         for ($i = 2; $i < $randNumber; $i += 1) {
-                if ($randNumber % $i === 0) {
-                    $answer = 'no';
-                    break; 
-                } else {
-                    $answer = 'yes';
-                }        
+            if ($randNumber % $i === 0) {
+                $answer = 'no';
+                break;
+            } else {
+                $answer = 'yes';
+            }
         }
         return $answer;
     }
-    
+
     function getMathQuest()
     {
-    $mathQuest = [];
+        $mathQuest = [];
 
-    for ($i = 0; $i < NUMBER_OF_LOOPS; $i += 1) {
-        $randNumber = rand(2, 40);
-        $rightAnswer = calculate($randNumber);
-        $mathQuest[$i] = [$randNumber, $rightAnswer];
-        
-    }
-    return $mathQuest;
+        for ($i = 0; $i < NUMBER_OF_LOOPS; $i += 1) {
+            $randNumber = rand(2, 40);
+            $rightAnswer = calculate($randNumber);
+            $mathQuest[$i] = [$randNumber, $rightAnswer];
+        }
+        return $mathQuest;
     }
     $mathQuest1 = getMathQuest();
 
