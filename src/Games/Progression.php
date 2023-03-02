@@ -37,7 +37,7 @@ function getProgression()
             $mathQuest[$i] = [$quest, $rightAnswer];
         }
         return $mathQuest;
-        }
+    }
     $mathQuest1 = getMathQuest();
 
     play($mathQuest1, $question);

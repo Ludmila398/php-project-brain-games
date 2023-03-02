@@ -37,8 +37,8 @@ function findDivisor()
 
             $mathQuest[$i] = [$quest, $rightAnswer];
         }
-    return $mathQuest;
-        }
+        return $mathQuest;
+    }
     $mathQuest1 = getMathQuest();
 
     play($mathQuest1, $question);
