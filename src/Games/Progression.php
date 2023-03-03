@@ -8,23 +8,19 @@ use function Engine\play;
 
 const NUMBER_OF_LOOPS = 3;
 
-function getProgression()
+function calculate(int $progrStep, int $progrStart)
 {
-    $question = 'What number is missing in the progression?';
-
-    function calculate(int $progrStep, int $progrStart)
-    {
-        $progr = [];
-        $temp = $progrStart;
-        for ($i = 0; $i < 10; $i += 1) {
-            $progr[] = $temp;
-            $temp += $progrStep;
-        }
-        return $progr;
+    $progr = [];
+    $temp = $progrStart;
+    for ($i = 0; $i < 10; $i += 1) {
+        $progr[] = $temp;
+        $temp += $progrStep;
     }
+    return $progr;
+}
 
-    function getMathQuest()
-    {
+function getMathQuest()
+{
         $mathQuest = [];
         for ($i = 0; $i < NUMBER_OF_LOOPS; $i += 1) {
             $progrStep = rand(2, 7);
@@ -37,7 +33,12 @@ function getProgression()
             $mathQuest[$i] = [$quest, $rightAnswer];
         }
         return $mathQuest;
-    }
+}
+
+function getProgression()
+{
+    $question = 'What number is missing in the progression?';
+    
     $mathQuest1 = getMathQuest();
 
     play($mathQuest1, $question);

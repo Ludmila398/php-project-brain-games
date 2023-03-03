@@ -8,22 +8,19 @@ use function Engine\play;
 
 const NUMBER_OF_LOOPS = 3;
 
-function getCalculator()
+function calculate(string $symbol, int $randNumber1, int $randNumber2)
 {
-    $question = 'What is the result of the expression?';
-
-    function calculate(string $symbol, int $randNumber1, int $randNumber2)
-    {
-        switch ($symbol) {
-            case "+":
-                return $randNumber1 + $randNumber2;
-            case "-":
-                return $randNumber1 - $randNumber2;
-            case "*":
-                return $randNumber1 * $randNumber2;
-        }
+    switch ($symbol) {
+        case "+":
+            return $randNumber1 + $randNumber2;
+        case "-":
+            return $randNumber1 - $randNumber2;
+        case "*":
+            return $randNumber1 * $randNumber2;
     }
-    function getMathQuest()
+}
+
+function getMathQuest()
     {
         $mathQuest = [];
         for ($i = 0; $i < NUMBER_OF_LOOPS; $i += 1) {
@@ -38,6 +35,11 @@ function getCalculator()
         }
         return $mathQuest;
     }
+
+function getCalculator()
+{
+    $question = 'What is the result of the expression?';
+
     $mathQuest1 = getMathQuest();
 
     play($mathQuest1, $question);

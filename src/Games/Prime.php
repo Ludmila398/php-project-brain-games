@@ -8,12 +8,8 @@ use function Engine\play;
 
 const NUMBER_OF_LOOPS = 3;
 
-function checkIfPrime()
+function calculate(int $randNumber)
 {
-    $question = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-
-    function calculate(int $randNumber)
-    {
         $answer = '';
         if ($randNumber === 2) {
             $answer = 'yes';
@@ -27,10 +23,10 @@ function checkIfPrime()
             }
         }
         return $answer;
-    }
+}
 
-    function getMathQuest()
-    {
+function getMathQuest()
+{
         $mathQuest = [];
 
         for ($i = 0; $i < NUMBER_OF_LOOPS; $i += 1) {
@@ -39,7 +35,12 @@ function checkIfPrime()
             $mathQuest[$i] = [$randNumber, $rightAnswer];
         }
         return $mathQuest;
-    }
+}
+
+function checkIfPrime()
+{
+    $question = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
     $mathQuest1 = getMathQuest();
 
     play($mathQuest1, $question);
