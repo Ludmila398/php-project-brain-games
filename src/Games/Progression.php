@@ -21,24 +21,24 @@ function calculate(int $progrStep, int $progrStart)
 
 function getMathQuest()
 {
-        $mathQuest = [];
-        for ($i = 0; $i < NUMBER_OF_LOOPS; $i += 1) {
-            $progrStep = rand(2, 7);
-            $progrStart = rand(2, 15);
-            $progrArray = calculate($progrStep, $progrStart);
-            $hiddenNumber = rand(0, 9);
-            $rightAnswer = (string)($progrArray[$hiddenNumber]);
-            $progrArray[$hiddenNumber] = '..';
-            $quest = implode(' ', $progrArray);
-            $mathQuest[$i] = [$quest, $rightAnswer];
-        }
-        return $mathQuest;
+    $mathQuest = [];
+    for ($i = 0; $i < NUMBER_OF_LOOPS; $i += 1) {
+        $progrStep = rand(2, 7);
+        $progrStart = rand(2, 15);
+        $progrArray = calculate($progrStep, $progrStart);
+        $hiddenNumber = rand(0, 9);
+        $rightAnswer = (string)($progrArray[$hiddenNumber]);
+        $progrArray[$hiddenNumber] = '..';
+        $quest = implode(' ', $progrArray);
+        $mathQuest[$i] = [$quest, $rightAnswer];
+    }
+    return $mathQuest;
 }
 
 function getProgression()
 {
     $question = 'What number is missing in the progression?';
-    
+
     $mathQuest1 = getMathQuest();
 
     play($mathQuest1, $question);

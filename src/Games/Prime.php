@@ -10,31 +10,31 @@ const NUMBER_OF_LOOPS = 3;
 
 function calculate(int $randNumber)
 {
-        $answer = '';
-        if ($randNumber === 2) {
+    $answer = '';
+    if ($randNumber === 2) {
+        $answer = 'yes';
+    }
+    for ($i = 2; $i < $randNumber; $i += 1) {
+        if ($randNumber % $i === 0) {
+            $answer = 'no';
+            break;
+        } else {
             $answer = 'yes';
         }
-        for ($i = 2; $i < $randNumber; $i += 1) {
-            if ($randNumber % $i === 0) {
-                $answer = 'no';
-                break;
-            } else {
-                $answer = 'yes';
-            }
-        }
-        return $answer;
+    }
+    return $answer;
 }
 
 function getMathQuest()
 {
-        $mathQuest = [];
+    $mathQuest = [];
 
-        for ($i = 0; $i < NUMBER_OF_LOOPS; $i += 1) {
-            $randNumber = rand(2, 40);
-            $rightAnswer = calculate($randNumber);
-            $mathQuest[$i] = [$randNumber, $rightAnswer];
-        }
-        return $mathQuest;
+    for ($i = 0; $i < NUMBER_OF_LOOPS; $i += 1) {
+        $randNumber = rand(2, 40);
+        $rightAnswer = calculate($randNumber);
+        $mathQuest[$i] = [$randNumber, $rightAnswer];
+    }
+    return $mathQuest;
 }
 
 function checkIfPrime()

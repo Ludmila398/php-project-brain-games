@@ -21,20 +21,20 @@ function calculate(string $symbol, int $randNumber1, int $randNumber2)
 }
 
 function getMathQuest()
-    {
-        $mathQuest = [];
-        for ($i = 0; $i < NUMBER_OF_LOOPS; $i += 1) {
-            $randNumber1 = rand(1, 30);
-            $randNumber2 = rand(1, 30);
-            $symbols = ['+', '-', '*'];
-            $symbol = $symbols[rand(0, count($symbols) - 1)];
-            $quest = "{$randNumber1} {$symbol} {$randNumber2}";
-            $rightAnswer = (string)(calculate($symbol, $randNumber1, $randNumber2));
+{
+    $mathQuest = [];
+    for ($i = 0; $i < NUMBER_OF_LOOPS; $i += 1) {
+        $randNumber1 = rand(1, 30);
+        $randNumber2 = rand(1, 30);
+        $symbols = ['+', '-', '*'];
+        $symbol = $symbols[rand(0, count($symbols) - 1)];
+        $quest = "{$randNumber1} {$symbol} {$randNumber2}";
+        $rightAnswer = (string)(calculate($symbol, $randNumber1, $randNumber2));
 
-            $mathQuest[$i] = [$quest, $rightAnswer];
-        }
-        return $mathQuest;
+        $mathQuest[$i] = [$quest, $rightAnswer];
     }
+    return $mathQuest;
+}
 
 function getCalculator()
 {
