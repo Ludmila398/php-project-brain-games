@@ -10,7 +10,7 @@ use const Engine\NUMBER_OF_ROUNDS;
 
 const EVEN_QUESTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-function isEven($number)
+function isEven(int $number)
 {
     return $number % 2 === 0;
 }
