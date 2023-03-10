@@ -5,43 +5,42 @@ namespace BrainGames\Prime;
 use function cli\line;
 use function cli\prompt;
 use function Engine\play;
+use const Engine\NUMBER_OF_ROUNDS;
+const PRIME_QUESTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const NUMBER_OF_LOOPS = 3;
-
-function calculate(int $randNumber)
+function isPrime(int $randNumber): bool
 {
-    $answer = '';
     if ($randNumber === 2) {
-        $answer = 'yes';
+        return true;
     }
-    for ($i = 2; $i < $randNumber; $i += 1) {
+    for ($i = 2; $i < $randNumber; $i++) {
         if ($randNumber % $i === 0) {
-            $answer = 'no';
-            break;
-        } else {
-            $answer = 'yes';
+            return false;
         }
     }
-    return $answer;
+    return true;
 }
 
 function getMathQuest()
 {
     $mathQuest = [];
 
-    for ($i = 0; $i < NUMBER_OF_LOOPS; $i += 1) {
+    for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
         $randNumber = rand(2, 40);
-        $rightAnswer = calculate($randNumber);
+
+    if (isPrime($randNumber)) {
+        $rightAnswer = 'yes';
+    } else {
+        $rightAnswer = 'no';
+    }
         $mathQuest[$i] = [$randNumber, $rightAnswer];
     }
     return $mathQuest;
 }
 
-function checkIfPrime()
+function startCheckIfPrime()
 {
-    $question = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+    $dataForQuest = getMathQuest();
 
-    $mathQuest1 = getMathQuest();
-
-    play($mathQuest1, $question);
+    play($dataForQuest, PRIME_QUESTION);
 }
