@@ -5,7 +5,9 @@ namespace BrainGames\Prime;
 use function cli\line;
 use function cli\prompt;
 use function Engine\play;
+
 use const Engine\NUMBER_OF_ROUNDS;
+
 const PRIME_QUESTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 function isPrime(int $randNumber): bool
@@ -28,11 +30,11 @@ function getMathQuest()
     for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
         $randNumber = rand(2, 40);
 
-    if (isPrime($randNumber)) {
-        $rightAnswer = 'yes';
-    } else {
-        $rightAnswer = 'no';
-    }
+        if (isPrime($randNumber)) {
+            $rightAnswer = 'yes';
+        } else {
+            $rightAnswer = 'no';
+        }
         $mathQuest[$i] = [$randNumber, $rightAnswer];
     }
     return $mathQuest;

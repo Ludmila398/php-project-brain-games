@@ -5,7 +5,9 @@ namespace BrainGames\Gcd;
 use function cli\line;
 use function cli\prompt;
 use function Engine\play;
+
 use const Engine\NUMBER_OF_ROUNDS;
+
 const GCD_QUESTION = 'Find the greatest common divisor of given numbers.';
 
 function findDivisor(int $randNumber1, int $randNumber2)

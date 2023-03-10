@@ -5,7 +5,9 @@ namespace BrainGames\Calc;
 use function cli\line;
 use function cli\prompt;
 use function Engine\play;
+
 use const Engine\NUMBER_OF_ROUNDS;
+
 const CALC_QUESTION = 'What is the result of the expression?';
 
 function calculate(string $symbol, int $randNumber1, int $randNumber2)

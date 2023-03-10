@@ -5,7 +5,9 @@ namespace BrainGames\Progression;
 use function cli\line;
 use function cli\prompt;
 use function Engine\play;
+
 use const Engine\NUMBER_OF_ROUNDS;
+
 const PROGR_QUESTION = 'What number is missing in the progression?';
 
 function calculate(int $progrStep, int $progrStart)

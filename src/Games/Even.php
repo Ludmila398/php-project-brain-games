@@ -5,7 +5,9 @@ namespace BrainGames\Even;
 use function cli\line;
 use function cli\prompt;
 use function Engine\play;
+
 use const Engine\NUMBER_OF_ROUNDS;
+
 const EVEN_QUESTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function isEven($number)
