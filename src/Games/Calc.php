@@ -19,6 +19,10 @@ function calculate(string $symbol, int $randNumber1, int $randNumber2)
             return $randNumber1 - $randNumber2;
         case "*":
             return $randNumber1 * $randNumber2;
+        case "/":
+            return $randNumber1 / $randNumber2;
+        default:
+            return null;
     }
 }
 
