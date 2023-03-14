@@ -11,17 +11,15 @@ use const Engine\NUMBER_OF_ROUNDS;
 const QUESTION = 'Find the greatest common divisor of given numbers.';
 
 function findDivisor(int $randNumber1, int $randNumber2): int
-{
-    if ($randNumber1 > $randNumber2) {
-        $temp =  $randNumber2;
-    } else {
-        $temp =  $randNumber1;
-    }
-    for ($i = $temp; $i >= 1; $i--) {
-        if (($randNumber1 % $i === 0) && ($randNumber2 % $i === 0)) {
-            return $i;
+{    
+    while ($randNumber1 != $randNumber2) {
+        if ($randNumber1 > $randNumber2) {
+            $randNumber1 -= $randNumber2;
+        } else {
+            $randNumber2 -= $randNumber1;
         }
     }
+    return $randNumber1;
 }
 
 function getMathQuestion()
