@@ -6,7 +6,7 @@ use function cli\line;
 use function cli\prompt;
 
 const NUMBER_OF_ROUNDS = 3;
-function play(array $dataForQuest, string $question)
+function play(array $mathQuestion, string $question)
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
@@ -14,12 +14,12 @@ function play(array $dataForQuest, string $question)
     line($question);
 
     for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
-        line("Question: {$dataForQuest[$i][0]}");
+        line("Question: {$mathQuestion[$i]['question']}");
         $answer = prompt('Your answer');
-        if ($answer === $dataForQuest[$i][1]) {
+        if ($answer === $mathQuestion[$i]['right answer']) {
             line("Correct!");
         } else {
-            exit("'{$answer}' is wrong answer ;(. Correct answer was '{$dataForQuest[$i][1]}'.\nLet's try again, {$name}!");
+            exit("'{$answer}' is wrong answer ;(. Correct answer was '{$mathQuestion[$i]['right answer']}'.\nLet's try again, {$name}!");
         }
     }
         line("Congratulations, {$name}!");

@@ -8,22 +8,22 @@ use function Engine\play;
 
 use const Engine\NUMBER_OF_ROUNDS;
 
-const PROGR_QUESTION = 'What number is missing in the progression?';
+const QUESTION = 'What number is missing in the progression?';
 
-function calculate(int $progrStep, int $progrStart)
+function calculate(int $progrStep, int $progrStart): array
 {
-    $progr = [];
+    $progression = [];
     $temp = $progrStart;
     for ($i = 0; $i < 10; $i++) {
-        $progr[] = $temp;
+        $progression[] = $temp;
         $temp += $progrStep;
     }
-    return $progr;
+    return $progression;
 }
 
-function getMathQuest()
+function getMathQuestion()
 {
-    $mathQuest = [];
+    $mathQuestion = [];
     for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
         $progrStep = rand(2, 7);
         $progrStart = rand(2, 15);
@@ -31,15 +31,15 @@ function getMathQuest()
         $hiddenNumber = rand(0, 9);
         $rightAnswer = (string)($progrArray[$hiddenNumber]);
         $progrArray[$hiddenNumber] = '..';
-        $quest = implode(' ', $progrArray);
-        $mathQuest[$i] = [$quest, $rightAnswer];
+        $question = implode(' ', $progrArray);
+        $mathQuestion[$i] = ['question' => $question, 'right answer' => $rightAnswer];
     }
-    return $mathQuest;
+    return $mathQuestion;
 }
 
 function startGetProgression()
 {
-    $dataForQuest = getMathQuest();
+    $dataForQuestion = getMathQuestion();
 
-    play($dataForQuest, PROGR_QUESTION);
+    play($dataForQuestion, QUESTION);
 }

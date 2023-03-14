@@ -8,9 +8,9 @@ use function Engine\play;
 
 use const Engine\NUMBER_OF_ROUNDS;
 
-const GCD_QUESTION = 'Find the greatest common divisor of given numbers.';
+const QUESTION = 'Find the greatest common divisor of given numbers.';
 
-function findDivisor(int $randNumber1, int $randNumber2)
+function findDivisor(int $randNumber1, int $randNumber2): int
 {
     if ($randNumber1 > $randNumber2) {
         $temp =  $randNumber2;
@@ -24,24 +24,24 @@ function findDivisor(int $randNumber1, int $randNumber2)
     }
 }
 
-function getMathQuest()
+function getMathQuestion()
 {
-    $mathQuest = [];
+    $mathQuestion = [];
 
     for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
         $randNumber1 = rand(1, 101);
         $randNumber2 = rand(1, 101);
-        $quest = "{$randNumber1} {$randNumber2}";
+        $question = "{$randNumber1} {$randNumber2}";
         $rightAnswer = (string)(findDivisor($randNumber1, $randNumber2));
 
-        $mathQuest[$i] = [$quest, $rightAnswer];
+        $mathQuestion[$i] = ['question' => $question, 'right answer' => $rightAnswer];
     }
-    return $mathQuest;
+    return $mathQuestion;
 }
 
 function startFindDivisor()
 {
-    $dataForQuest = getMathQuest();
+    $dataForQuestion = getMathQuestion();
 
-    play($dataForQuest, GCD_QUESTION);
+    play($dataForQuestion, QUESTION);
 }

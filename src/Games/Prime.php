@@ -8,7 +8,7 @@ use function Engine\play;
 
 use const Engine\NUMBER_OF_ROUNDS;
 
-const PRIME_QUESTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const QUESTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 function isPrime(int $randNumber): bool
 {
@@ -23,9 +23,9 @@ function isPrime(int $randNumber): bool
     return true;
 }
 
-function getMathQuest()
+function getMathQuestion()
 {
-    $mathQuest = [];
+    $mathQuestion = [];
 
     for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
         $randNumber = rand(2, 40);
@@ -35,14 +35,14 @@ function getMathQuest()
         } else {
             $rightAnswer = 'no';
         }
-        $mathQuest[$i] = [$randNumber, $rightAnswer];
+        $mathQuestion[$i] = ['question' => $randNumber, 'right answer' => $rightAnswer];
     }
-    return $mathQuest;
+    return $mathQuestion;
 }
 
 function startCheckIfPrime()
 {
-    $dataForQuest = getMathQuest();
+    $dataForQuestion = getMathQuestion();
 
-    play($dataForQuest, PRIME_QUESTION);
+    play($dataForQuestion, QUESTION);
 }
