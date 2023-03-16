@@ -23,26 +23,14 @@ function isPrime(int $randNumber): bool
     return true;
 }
 
-function getMathQuestion()
-{
-    $mathQuestion = [];
-
-    for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
-        $randNumber = rand(2, 40);
-
-        if (isPrime($randNumber)) {
-            $rightAnswer = 'yes';
-        } else {
-            $rightAnswer = 'no';
-        }
-        $mathQuestion[$i] = ['question' => $randNumber, 'right answer' => $rightAnswer];
-    }
-    return $mathQuestion;
-}
-
 function startCheckIfPrime()
 {
-    $dataForQuestion = getMathQuestion();
+    $mathQuestion = [];
+    for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
+        $randNumber = rand(2, 40);
+        $rightAnswer = (isPrime($randNumber)) ? 'yes' : 'no';
+        $mathQuestion[$i] = ['question' => $randNumber, 'right answer' => $rightAnswer];
+    }
 
-    play($dataForQuestion, QUESTION);
+    play($mathQuestion, QUESTION);
 }

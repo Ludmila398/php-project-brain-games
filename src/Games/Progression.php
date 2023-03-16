@@ -21,7 +21,7 @@ function calculate(int $progrStep, int $progrStart): array
     return $progression;
 }
 
-function getMathQuestion()
+function startGetProgression()
 {
     $mathQuestion = [];
     for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
@@ -29,17 +29,11 @@ function getMathQuestion()
         $progrStart = rand(2, 15);
         $progrArray = calculate($progrStep, $progrStart);
         $hiddenNumber = rand(0, 9);
-        $rightAnswer = (string)($progrArray[$hiddenNumber]);
+        $rightAnswer = (string) $progrArray[$hiddenNumber];
         $progrArray[$hiddenNumber] = '..';
         $question = implode(' ', $progrArray);
         $mathQuestion[$i] = ['question' => $question, 'right answer' => $rightAnswer];
     }
-    return $mathQuestion;
-}
 
-function startGetProgression()
-{
-    $dataForQuestion = getMathQuestion();
-
-    play($dataForQuestion, QUESTION);
+    play($mathQuestion, QUESTION);
 }

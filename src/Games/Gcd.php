@@ -22,24 +22,16 @@ function findDivisor(int $randNumber1, int $randNumber2): int
     return $randNumber1;
 }
 
-function getMathQuestion()
+function startFindDivisor()
 {
     $mathQuestion = [];
-
     for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
         $randNumber1 = rand(1, 101);
         $randNumber2 = rand(1, 101);
         $question = "{$randNumber1} {$randNumber2}";
         $rightAnswer = (string)(findDivisor($randNumber1, $randNumber2));
-
         $mathQuestion[$i] = ['question' => $question, 'right answer' => $rightAnswer];
     }
-    return $mathQuestion;
-}
 
-function startFindDivisor()
-{
-    $dataForQuestion = getMathQuestion();
-
-    play($dataForQuestion, QUESTION);
+    play($mathQuestion, QUESTION);
 }
