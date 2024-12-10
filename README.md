@@ -22,14 +22,14 @@ Games:
 
 ## Installation
 
-Clone the repo and enter the project folder
+Clone the repo and enter the project folder:
 ```
 git clone git@github.com:Ludmila398/php-project-brain-games.git
 
 cd php-project-brain-games
 ```
 Install dependencies using Composer.
-Ensure that `make` is installed and available on your system. The `make install` command will use Composer to install dependencies and prepare the project.
+Ensure that `make` is installed and available on your system. The `make install` command will use Composer to install dependencies and prepare the project:
 ```
 make install
 ```
